@@ -1,4 +1,4 @@
-# ${1:Project Name}
+# WebScokects Demo Tutorial Code
 TODO: Websocket PHP tutorial code
 ## Installation
 TODO: Downlaod and install into your webserver direcotry
