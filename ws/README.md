@@ -1,5 +1,3 @@
-<snippet>
-  <content><![CDATA[
 # ${1:Project Name}
 TODO: Websocket PHP tutorial code
 ## Installation
@@ -18,6 +16,3 @@ TODO: Write history
 TODO: Write credits
 ## License
 TODO: Write license
-]]></content>
-  <tabTrigger>readme</tabTrigger>
-</snippet>
