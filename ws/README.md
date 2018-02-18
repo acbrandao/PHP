@@ -1,5 +1,5 @@
-# WebScokects Demo Tutorial Code
-TODO: Websocket PHP tutorial code
+# php WebSockets Demo Tutorial Code
+Example of of websockets code exalaned on http://www.abrandao.com/2013/06/websockets-html5-php/
 ## Installation
 TODO: Downlaod and install into your webserver direcotry
 ## Usage
