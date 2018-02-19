@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+   <title>Knockout.js Single Page Application</title>
+   <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/jquery.bootgrid.css" rel="stylesheet">
+<style>
+.ko-grid { margin-bottom: 1em; width: 25em; border: 1px solid silver; background-color:White; }
+.ko-grid th { text-align:left; background-color: Black; color:White; }
+.ko-grid td, th { padding: 0.4em; }
+.ko-grid tr:nth-child(odd) { background-color: #DDD; }
+.ko-grid-pageLinks { margin-bottom: 1em; }
+.ko-grid-pageLinks a { padding: 0.5em; }
+.ko-grid-pageLinks a.selected { background-color: Black; color: White; }
+.liveExample { height:20em; overflow:auto } /* Mobile Safari reflows pages slowly, so fix the height to avoid the need for reflows */
+
+</style>	
+	
+	
+</head>
+<body>
+
+<div class="container">
+      <div class="header">
+	  	<!-- Folders -->
+        <ul class="nav nav-pills pull-right" role="tablist" data-bind="foreach: links">
+			<li  role="presentation"  ><a href="#" data-bind="text: folder, attr: { href: link }"> </a>  </li>
+        </ul>
+        <h3 class="text-muted">Knockout SPA Sample</h3>
+      </div>
+
+      <div class="row marketing">
+	   <div id="json" class="col-lg-6">   </div>
+	  
+        <div class="col-lg-12">
+		
+		<h2>Sample Table </h2>
+		<div data-bind='simpleGrid: moviesViewModel'> </div>
+		
+		<hr>
+		<h2> NAtive Bootgrid Implementation </h2>
+		More info about <A href="http://www.jquery-bootgrid.com/">bootgrid</a>
+		<table id="grid-data-api" class="table table-condensed table-hover table-striped" data-toggle="bootgrid" data-ajax="true" data-url="server.php">
+		<thead>
+            <tr>
+                <th data-column-id="id" data-type="numeric">id</th>
+                <th data-column-id="movie">Movie</th>
+				<th data-column-id="year" data-type="numeric">year</th>
+				<th data-column-id="genre">Genre</th>
+				<th data-column-id="rating_imdb" data-type="numeric">Rating</th>
+            </tr>
+		</thead>	
+</table>
+				
+		
+		<hr>
+		<p> Movie Count: <span data-bind="text: moviesArray().length " > </span> </p>
+		<button data-bind="click: fetchServerData ">Get Data</button> 
+		<button data-bind="click: clearData ">Clear</button> 
+		
+		
+		<table id="grid-basic" class="table table-condensed table-hover table-striped" >
+        <thead>
+            <tr>
+                <th data-column-id="id" data-type="numeric">id</th>
+                <th data-column-id="movie">Movie</th>
+				<th data-column-id="year" data-type="numeric">year</th>
+				<th data-column-id="genre">Genre</th>
+				<th data-column-id="rating_imdb" data-type="numeric">Rating</th>
+            </tr>
+        </thead>
+        <tbody data-bind='foreach: moviesArray'>
+            <tr>
+				<td> <div data-bind="text: id">  </div>  </td>
+				<td> <div data-bind="text: movie">  </div>  </td>
+				<td> <div data-bind="text: year">  </div>  </td>
+				<td> <div data-bind="text: genre">  </div>  </td>
+				<td> <div data-bind="text: rating_imdb">  </div>  </td>
+            </tr>
+        </tbody>
+    </table>
+	</hr>
+       </div>
+<hr>
+
+      <div class="footer">
+        <p>&copy; Company 2014</p>
+      </div>
+
+    </div> <!-- /container -->
+
+<!-- ----------------------------Javascript code here  ----------------------------------->
+
+  <script src="js/jquery-1.11.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.bootgrid.min.js"></script>
+
+   
+  <script src="js/knockout-3.2.0.js"></script>
+  <script src="js/knockout.mapping.js"></script>
+  <script src="js/knockout.simpleGrid.3.0.js"> </script>
+<!-- Templates -->  
+
+
+<!-- Javascript -->  
+  <script >
+  //http://stackoverflow.com/questions/9930719/how-to-use-the-mapping-plugin-for-knockout
+  
+   
+   function appViewModel() {
+    // Data
+    var self = this;
+   self.moviesArray=ko.observableArray([]);
+	nmovies= ko.observable(0);
+	
+	
+    self.links = [ 
+			  { folder: 'INBOX', link: 'index.html' },
+            { folder: 'SPAM', link: 'spa.html' },
+            { folder: 'SENT', link: 'lists.html' },
+			{ folder: 'ARCHIVE', link: 'other.hmtl' }
+			 ];
+
+	  // Behaviours
+	  self.fetchServerData = function(){
+              
+			$.getJSON("server.php", function(data) {
+					
+			// console.log("data: "+data);			
+					 
+			if (self.moviesArray)
+			{
+			
+			   ko.mapping.fromJS(data,{}, self.moviesArray);  //update
+				//$("#grid-basic").bootgrid({caseSensitive:false});
+				 }
+			  else
+			  {
+			   self.moviesArray= ko.mapping.fromJS(data); ///first time
+				$("#grid-basic").bootgrid({
+				  
+				 caseSensitive:false
+				 
+				 });
+			   }
+			     var unmapped = ko.mapping.toJS(self.moviesArray);
+
+			})
+	  }; //end	 fetchServerData
+	  
+	  
+	  self.clearData = function(){
+ 
+	 self.moviesArray.removeAll();
+     $("#grid-basic").bootgrid("clear");	
+	 
+	  }
+	  
+	  
+	 
+	  self.moviesViewModel = new ko.simpleGrid.viewModel({
+        data: self.moviesArray,
+        columns: [
+            { headerText: "id", rowText: "id" },
+            { headerText: "Movie", rowText: "movie" },
+			{ headerText: "Year", rowText: "year" },
+			{ headerText: "Genre", rowText: "genre" },
+			{ headerText: "Rating", rowText: "rating_imdb" }
+        ],
+        pageSize: 5
+    });
+
+  
+};
+
+var vm = new appViewModel();
+ko.applyBindings(vm);
+
+$("#grid-data-api").bootgrid({caseSensitive:false});
+
+
+  </script>  
+  
+</body> 
+</html>
