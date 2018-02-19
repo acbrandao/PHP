@@ -6,7 +6,7 @@ and given MySQL database.  Using standard zip (unix utility) to compressor and a
 Finally script will  RSYNC backup to an offsite location
 #
  Feel free to use this script wherever you want, however you want. We produce open source, GPLv2 licensed stuff.
-Author: Antonio Brandao July 2017 based off script from Konstantin Kovshenin exclusively for Theme.fm in June, 2011
+Author: Antonio Brandao July 2017 based off script from Konstantin Kovshenin 
 
 ## Installation
 
