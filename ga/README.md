@@ -1,5 +1,5 @@
 # php Genetic Algorithm Sample code
-Example of code expalined here  http://www.abrandao.com/2015/01/simple-php-genetic-algorithm/
+Example of code expalined here  http://www.abrandao.com/2015/01/simple-php-genetic-algorithm/  .
 
 ![Image of GUI GA Code running](http://www.abrandao.com/wp-content/uploads/2015/01/genetic_algorithm_php.png)
 
