@@ -1,6 +1,8 @@
 # php Genetic Algorithm Sample code
 Example of code expalined here  http://www.abrandao.com/2015/01/simple-php-genetic-algorithm/
 
+![Image of GUI GA Code running](http://www.abrandao.com/wp-content/uploads/2015/01/genetic_algorithm_php.png)
+
 ## Installation
 Simply clone  or download the few files that make this PHP Genetic algorith.  PHP files are based on PHP Classes with each class representing a portion of the genetic algorith code. The classes are broekn out as folllows :
 
@@ -38,5 +40,5 @@ TODO: Write history
 ## Credits
 TODO: Write credits
 ## License
-TODO: Write license
+TODO: Write license.
 
