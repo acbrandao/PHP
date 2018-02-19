@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title> Genetic algorithm in PHP - Server Side Events </title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"> </script>
+  <script src="ie_eventsource.js"></script>
+<script>
+function run_server_ga(solution)
+{
+     console.log("Calling Server looking for JSON in "+solution);
+
+	 if (!!window.EventSource) {
+ 
+var source= new EventSource("http://www.abrandao.com/lab/ga/ga_sse_server.php?solution="+solution);
+ 
+   source.addEventListener('update', function(e)
+   {
+   // console.log("Receiving JSON server side events");
+     var data = JSON.parse(e.data);
+	  $('#best_individual').html(data.best_individual); // Clear various <spans>
+		$('#best_fittest_value').text(data.best_fittest_value); //
+		$('#generation').text(data.generation);
+	    $('#stagnant').text(data.stagnant);
+        $('#max_fitness').text(data.max_fitness);
+		$('#message').html(data.message);
+		$('#elapsed').text(data.elapsed);
+		
+		 if (data.done==true)
+			source.close();
+		
+}, false);
+
+source.onerror = function(e) {
+  $('#message').html("EventSource failed.");
+};
+
+} else {
+  $('#message').html("<strong>Sorry your Browser doesn't support SERVER SIDE Events , needed to stream the live results.</strong>-<br>Supported browsers see here: <a href='http://caniuse.com/#feat=eventsource'>http://caniuse.com/</a> ");
+}
+
+}
+  
+$(document).ready(function() {
+  console.log("document.ready");
+
+// When any <submit > button  is clicked 
+ $('#btnRun').click( function() { 
+    var solution = $("#my_solution").text();
+   run_server_ga(solution); //lets go to the server and look for this string
+    return false; // keeps the page form  not refreshing 
+  }); //end of event handler
+
+ });  //end document.ready
+ 
+</script>
+<style>
+/* Make the input text and output results look better */
+body {    font-family: "Helvetica", Sans-serif, arial;}
+ .large_text {   text-align: left;  font-size: 300%; color:#fff;  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+ .large_text_input {   text-align: left;  font-size: 300%; color:#999;   border: 1px dotted black; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+ .med_text {   text-align: left;   color: black; font-size: 150%;font-weight: bold;  }
+</style>
+</head>
+<body>
+<h1> Genetic algorithm in PHP - Server Side Events </h1>
+<form id="form1" >
+Type a solution to find (edit below): <input id="btnRun" type="submit" value="Run GA"/><br>
+<div contenteditable="true" class="large_text_input" id="my_solution">Genetic algorithms are fun!</div>
+</form>
+<span id="best_individual" class="large_text">  </span>
+<hr>
+Generations:<span id="generation"  class="med_text"> </span> /
+(stagnant: <span id="stagnant"  class="med_text"> </span>) /
+Fitness value: <span id="best_fittest_value"  class="med_text">  </span> /
+Elapsed Time: <span id="elapsed"  class="med_text"> </span>
+<hr>
+<span id="message"> </span>
+<br>
+for more php and javascript coding examples visit: <A href='http://www.abrandao.com'>http://www.abrandao.com</a>
+</body>
+</html>
