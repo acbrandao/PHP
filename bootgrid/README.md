@@ -1,9 +1,14 @@
 # php BootGrid Server side Code Example
 
 This code builds up BootGrid http://www.jquery-bootgrid.com/  a sleek table Jquery add-on for Bootstrap 
-Bootstrap Bootgrid with PHP json server side script is a script that
+Bootstrap Bootgrid with PHP json server side script is a script that allows you to render server side data quickly and effectively using BootGrid , this means large database tabular data can easilly and uickly be displayed.
 
-Example of code expalined here 
+In this code a revised and enhanced the Bootgrid examples to use a PHP based backedn to read  a DB file (SQLite but works just as easily with MySQL, MariabDB etc.)
+
+![Screenshot of Bootgrid +PHP](http://www.abrandao.com/wp-content/uploads/2014/12/boot_grid_sample_page.jpg)
+
+Detailed explanation of the code available on my bog here: www.abrandao.com/2014/11/bootstrap-bootgrid-with-php-pdo-server-script/
+
 
 ## Installation
 
