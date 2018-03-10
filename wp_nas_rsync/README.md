@@ -20,9 +20,7 @@ Download shell script to your system.
    * WWW_DIR : Source folder (WORDPRESS  top directory) , typically your html root but check server settings
    *
 
-Change the permissions to execute `chmod +x zipup_wp.sh`
-
-
+Remmber to Change the permissions to execute `chmod +x zipup_wp.sh`
 
 ## Usage
 
