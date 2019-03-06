@@ -9,7 +9,7 @@ Place the index.php on any webserver that has PHP enabled. then change the follo
 ````
    define('DOMAIN_FQDN', 'YOUR_DOMAIN.local'); //Replace with REAL DOMAIN FQDN
    define('LDAP_SERVER', '10.0.1.3');  //Replace with REAL LDAP SERVER Address
-```
+`
 
 # Project Descriptions
 see http://www.abrandao.com/2018/08/php-authenticate-users-with-windows-server-active-directory/   for more details
