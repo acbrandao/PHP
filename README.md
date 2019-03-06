@@ -12,4 +12,5 @@ Below is the general descriptions and projects in this GitHub direcotry.
 | ga      | PHP Genetic Algorithm code in OOP format      |   PHP |
 | wp_nas_rsync  | Shell Script to Sync Wordpress withh offsite nas     |   bash   |
 | ws   | PHP Websocket Client and SErver demo     |   PHP   |
-0 comments on commit b16b56c
+
+# more details
