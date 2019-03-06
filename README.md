@@ -1,7 +1,5 @@
 # PHP
-assorted list of PHP related projects most of my PHP projects are short code samples that I feature on my blog. 
-
-http://www.abrandao.com/code
+My assorted list of mostly PHP projects with some assorted short code samples that I feature on my blog. For complete details on this code please click into each sub-folder and check out my blog here:  http://www.abrandao.com/code
 
 # Projects and Descriptions
 
