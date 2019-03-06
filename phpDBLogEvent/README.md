@@ -27,7 +27,7 @@ CREATE TABLE `log` (
 COLLATE='latin1_swedish_ci'
 ENGINE=MyISAM
 AUTO_INCREMENT=1
-'
+```
 
 * for SQLite
 ```sql
@@ -39,7 +39,7 @@ ip VARCHAR(35),
 user VARCHAR(30), 
 description VARCHAR(64), 
 category VARCHAR(32));
-'
+```
 
 Make sure that the database tables are correctly created and make sure that you have the PROPER PERMISSONS (database or FILE perms) to write to the databases.
 
@@ -60,7 +60,6 @@ $pass = 'db_password';
 // $dsn = "sqlite:c:/path/db.sqlite3 ;dbname=name_of_your_db"
 
 $dsn = "mysql:host=$host;dbname=$db";
-
 ```
 
 -  Finally log an event by using one of the two logme_.* scripts to insert an event into the table
