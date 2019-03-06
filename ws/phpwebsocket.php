@@ -43,11 +43,13 @@ class phpWebSocket{
     $this->say("Master socket  : ".$this->master."\n");
 	$this->say(".... awaiting connections ...");
 	
+    $write = array();
+    $except = array();
 	// Main Server processing loop
     while(true)  //server is always listening
 	{
       $changed = $this->sockets;
-      socket_select($changed,$write=NULL,$except=NULL,NULL);
+      socket_select($changed,$write,$except,NULL);
 	  $this->say("listening...\n");
       foreach($changed as $socket)
 	  {
