@@ -6,7 +6,7 @@ For complete details on this code please click into each sub-folder and check ou
 # Installation
 
 Place the index.php on any webserver that has PHP enabled. then change the following line to match your environmenat
-````
+```php
    define('DOMAIN_FQDN', 'YOUR_DOMAIN.local'); //Replace with REAL DOMAIN FQDN
    define('LDAP_SERVER', '10.0.1.3');  //Replace with REAL LDAP SERVER Address
 `
