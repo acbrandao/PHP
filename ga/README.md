@@ -22,6 +22,8 @@ The other files are the ones that allow you to view the genetc algorthim with so
 ## Usage
 
  Install all the above on a folder on your PHP supported web server.
+ 
+ ## Demo
  Simply visit the URL containing the example code  calling the example Server Side events demo such as :
 http://www.abrandao.com/lab/ga/ga_sse_demo.html
 
