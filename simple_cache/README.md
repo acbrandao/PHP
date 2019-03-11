@@ -11,11 +11,12 @@ file contents have changed it fires off a new edition otherwise it sends out the
 
 # Installation
 
-Place the index.php on any webserver that has PHP enabled. then change the following line to match your environment
+Place the index.php on any webserver that has PHP enabled. then change the following line to match your environment. 
+  $cache_file is any file that will store this page and be the cahced file, it should be existing and intially set with 0744 permissions
+  $cach_life, is the time in seconds to check to see if this is out of date.
 ```php
-   define('DOMAIN_FQDN', 'YOUR_DOMAIN.local'); //Replace with REAL DOMAIN FQDN
-   define('LDAP_SERVER', '10.0.1.3');  //Replace with REAL LDAP SERVER Address
-   
+  $cache_file = 'file_cache.txt';
+  $cache_life = 10; //caching time, in seconds   
 ```
 
 # Project Descriptions
