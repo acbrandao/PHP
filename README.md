@@ -1,4 +1,6 @@
 # PHP
+
+<img align="right" width="300" src="https://github.com/acbrandao/templates/blob/master/img/php_PNG39.png">
 My assorted list of mostly PHP projects with some assorted short code samples that I feature on my blog. For complete details on this code please click into each sub-folder and check out my blog here:  http://www.abrandao.com/category/software/
 
 # Projects and Descriptions
