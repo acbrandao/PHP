@@ -10,13 +10,16 @@ back into the HTML file.
 Simlply clone this folder, or click on the file you're interested in and just copy it to your working direcotry.
 
 ```bash
-git clone git@github.com:acbrandao/templates.git
+git clone git@github.com:acbrandao/PHP.git
 ```
 
 ## Usage
 
 Create a plain Plain HTML page then place your content inside structure like this
- `<div id="ce=01" {{content_editable}}> Your content inside here </div>`  this will tell the PHP file
+ ```html
+<div id="ce=01" {{content_editable}}> Your content inside here </div>
+```  
+ this will tell the PHP file
  to make the content located inside editable.
 
 ## Contributing
