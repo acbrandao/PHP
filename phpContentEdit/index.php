@@ -8,9 +8,10 @@ date_default_timezone_set('America/New_York');  //Enable sesssions and timezone
 
 //Get the script name and find the corresponding 
 $basename= pathinfo(basename($_SERVER['SCRIPT_NAME']), PATHINFO_FILENAME);
+$html_filename="content.html";
 
 //Load in the corresponding HTML template file by the same name 
-$page_html = file_get_contents("content.html");  //load in our html content with proper placeholders
+$page_html = file_get_contents($html_filename);  //load in our html content with proper placeholders
 
 
 //Are we authorized to change this page, if so lets make teh content editable 
@@ -20,9 +21,7 @@ if ( isset($_REQUEST['action']) )  //
     if ($_REQUEST['action']=="write")
     {
 
-        print_r($_REQUEST);
-        //$doc = new DOMDocument();
-        echo "<br>searching for block";
+       //$doc = new DOMDocument();
 
         if (isset($_REQUEST['id']))
             $id= $_REQUEST['id'];
@@ -32,17 +31,25 @@ if ( isset($_REQUEST['action']) )  //
         preg_match('#(<div[^>]*id=[\'|"]'.$id.'[\'|"][^>]*>)(.*)</div>#isU', $page_html, $matches);
        
         //extract the contain block of that id
-        var_dump($matches);
-        $replacement =$matches[2];
+        //var_dump($matches);
+        $matched_text =$matches[2];
+
+        $replacement ="<div class='editable' id=\"".$id."\" {{contentedit}} >".$_REQUEST['content']."</div>";
+        //echo  $replacement;  
 
         //replace the block with the new content
-        preg_match('#(<div[^>]*id=[\'|"]'.$id.'[\'|"][^>]*>)(.*)</div>#isU',$replacement , $page_html);
+        $new_html= preg_replace('#(<div[^>]*id=[\'|"]'.$id.'[\'|"][^>]*>)(.*)</div>#isU', $replacement , $page_html);
 
         //write the update page (Entire Page back to disk)
-         echo $page_html;
+        if (is_writable($html_filename))
+        {
+        $bytes=file_put_contents($html_filename, $new_html);
+        echo "\n Successfully wrote $bytes bytes \n";
+        }
+        else
+        die("File cannot not be written to check permissions");
 
         //return status and exit here.
-
         die("End of AJAX Function  write  Content");
     }
 
@@ -52,7 +59,7 @@ if ( isset($_REQUEST['action']) )  //
 $page_html_placeholders = [
     'title' => "Content Editable Page Sample", // title show in the page title
    'server_page' =>$_SERVER['PHP_SELF']."?action=edit",
-   'mode' => isset($_REQUEST['action'])? $_REQUEST['action'] : " ",
+   'action' => isset($_REQUEST['action'])? $_REQUEST['action'] : " Edit",
    'contentedit' => isset($_REQUEST['action']) &&  ( $_REQUEST['action']=='edit' ) ? "contenteditable='true'" : null
   ];
  
@@ -67,6 +74,4 @@ $page_html_placeholders = [
    
   echo $page_html ;
   ob_end_flush();
-
-
 ?>

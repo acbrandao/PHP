@@ -18,34 +18,31 @@
                 <h1>Content Editable  Bootstrap Page</h1>
                 <p>Resize this responsive page to see the effect!</p>
                 <form action="{{server_page}}" name="form1" id="form1" method="POST">
-                <button  type="submit" class="btn  btn-primary" > Edit Mode </button>
-                <button type="button" class="btn btn-secondary">{{mode}}</button>
+                <button  type="submit" class="btn  btn-primary" > {{action}} </button>
+                <button type="button" class="btn btn-secondary" onClick='location.reload()'> reload</button>
             </form>
             </div>
               
               <div class="container">
                 <div class="row">
                   <div class="col-sm-4">
-                        <h1>Content Edit Para 1</h1>
+                        <h2>Content Edit Para 1</h2>
                         <div class="editable" id="ce-01" {{contentedit}}>
-                            <strong> Edit this content </strong>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                            Explicabo voluptas nihil perspiciatis 
-                            repellendus fuga suscipit unde harum quia nesciunt nulla praesentium laboriosam nisi doloribus, 
-                            tenetur inventore, temporibus ab et nemo!
+                            <strong> Edit this content </strong>This is the first
+                            paragraphs content. This content is editable and 
+                            can be changed and switched on blur action of this fiv.
                         </div>
                   </div>
                   <div class="col-sm-4">
-                        <h1>Content Edit Para 2</h1>
-                        <div class="editable" id="ce-02" {{contentedit}}>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo voluptas nihil perspiciatis 
-                            repellendus fuga suscipit unde harum quia nesciunt nulla praesentium laboriosam nisi doloribus, 
-                            tenetur inventore, temporibus ab et nemo!
-                        </div>
+                        <h2>Content Edit Para 2</h2>
+                        
+<div class='editable' id="ce-02" {{contentedit}} >This is the <strong>second paragraphs</strong> content, it too
+                            can be edited and changed using the content editable tag, changeseditable
+                            changes will be writtent to disk</div>
                   </div>
                   <div class="col-sm-4">
-                    <h3>Column 3</h3>
-                    <div class="editable" id="ce-03" {{contentedit}}>Lorem ipsum dolor..</div>
-                  </div>
+                    <h2>Column 3</h2>
+                    <div class='editable' id="ce-03" {{contentedit}} > text change here</div>
                 </div>
               </div>
     
@@ -58,13 +55,13 @@
     var myTxt = $(this).html();
     var myid = $(this).attr('id');
     
-    alert("Updating content: "+myTxt);
-    alert("content ATTR: "+myid);
+    console.log("Updating content: "+myTxt.trim() );
+    console.log("content ATTR: "+myid);
 
     $.ajax({
         type: 'post',
         url:  '{{server_page}}',
-        data: 'content=' +myTxt+"&id="+myid+"&action=write"
+        data: 'content=' +myTxt.trim()+"&id="+myid+"&action=write"
     });
 });
   
