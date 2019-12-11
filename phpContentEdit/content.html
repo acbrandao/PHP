@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}}</title>
+
+    <!-- include  necessary Bootstrap 4.0  and related libraries-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+        <div class="jumbotron text-center">
+                <h1>Content Editable  Bootstrap Page</h1>
+                <p>Resize this responsive page to see the effect!</p>
+                <form action="{{server_page}}" name="form1" id="form1" method="POST">
+                <button  type="submit" class="btn  btn-primary" > Edit Mode </button>
+                <button type="button" class="btn btn-secondary">{{mode}}</button>
+            </form>
+            </div>
+              
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-4">
+                        <h1>Content Edit Para 1</h1>
+                        <div class="editable" id="ce-01" {{contentedit}}>
+                            <strong> Edit this content </strong>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                            Explicabo voluptas nihil perspiciatis 
+                            repellendus fuga suscipit unde harum quia nesciunt nulla praesentium laboriosam nisi doloribus, 
+                            tenetur inventore, temporibus ab et nemo!
+                        </div>
+                  </div>
+                  <div class="col-sm-4">
+                        <h1>Content Edit Para 2</h1>
+                        <div class="editable" id="ce-02" {{contentedit}}>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo voluptas nihil perspiciatis 
+                            repellendus fuga suscipit unde harum quia nesciunt nulla praesentium laboriosam nisi doloribus, 
+                            tenetur inventore, temporibus ab et nemo!
+                        </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <h3>Column 3</h3>
+                    <div class="editable" id="ce-03" {{contentedit}}>Lorem ipsum dolor..</div>
+                  </div>
+                </div>
+              </div>
+    
+    
+    
+
+  <!-- Javascript code below does the work and submit changeseditable-->  
+  <script>
+      $('.editable').blur(function(){
+    var myTxt = $(this).html();
+    var myid = $(this).attr('id');
+    
+    alert("Updating content: "+myTxt);
+    alert("content ATTR: "+myid);
+
+    $.ajax({
+        type: 'post',
+        url:  '{{server_page}}',
+        data: 'content=' +myTxt+"&id="+myid+"&action=write"
+    });
+});
+  
+  </script>
+</body>
+</html>
