@@ -18,5 +18,6 @@ Below is the general descriptions and projects in this GitHub direcotry.
 | phpLDAPWindows   | PHP example connect to LDAP server   |   PHP   |
 | phpDBLogEvent   | PHP example of how to log a CLI event to MySQL or  SQLite  |   PHP   |
 | simple_cahce    | PHP  of how to easily cache a dynamic page into static text page  |   PHP   |
+| phpContentEdit  | Uses HTML5 contentEditable with Ajax and PHP backend to update web pages | PHP |
 
 
