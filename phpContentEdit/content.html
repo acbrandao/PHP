@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{title}}</title>
-
+    <link rel="icon" href="data:,">
     <!-- include  necessary Bootstrap 4.0  and related libraries-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -13,16 +13,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-
         <div class="jumbotron text-center">
                 <h1>Content Editable  Bootstrap Page</h1>
                 <p>Resize this responsive page to see the effect!</p>
                 <form action="{{server_page}}" name="form1" id="form1" method="POST">
-                <button  type="submit" class="btn  btn-primary" > {{action}} </button>
+                <input type="hidden" name="pw" value="" id="pw">
+                <button  type="submit" class="btn btn-primary" onclick="return allowEdit()"> {{action}} </button>
                 <button type="button" class="btn btn-secondary" onClick='location.reload()'> reload</button>
             </form>
             </div>
-              
               <div class="container">
                 <div class="row">
                   <div class="col-sm-4">
@@ -35,36 +34,29 @@
                   </div>
                   <div class="col-sm-4">
                         <h2>Content Edit Para 2</h2>
-                        
-<div class='editable' id="ce-02" {{contentedit}} >This is the <strong>second paragraphs</strong> content, it too
+                <div class='editable' id="ce-02" {{contentedit}} >This is the <strong>second paragraphs</strong> content, it too
                             can be edited and changed using the content editable tag, changeseditable
                             changes will be writtent to disk</div>
                   </div>
                   <div class="col-sm-4">
-                    <h2>Column 3</h2>
-                    <div class='editable' id="ce-03" {{contentedit}} > text change here</div>
+                    <h2>Content Edit Para 3</h2>
+                    <div class='editable' id="ce-03" {{contentedit}} >
+                      Wow this is pretty cool
+                    </div>
                 </div>
               </div>
     
-    
-    
+    <!-- Dynamically inserted Javascript goes here-->
+    {{javascript_content_edit}}
 
-  <!-- Javascript code below does the work and submit changeseditable-->  
-  <script>
-      $('.editable').blur(function(){
-    var myTxt = $(this).html();
-    var myid = $(this).attr('id');
-    
-    console.log("Updating content: "+myTxt.trim() );
-    console.log("content ATTR: "+myid);
-
-    $.ajax({
-        type: 'post',
-        url:  '{{server_page}}',
-        data: 'content=' +myTxt.trim()+"&id="+myid+"&action=write"
-    });
-});
+    <script>
+      function allowEdit()
+      {
+      var result= prompt('Credentials for editing. Make more secure. This is for demo purposes.');
+      document.getElementById('pw').value=result;
+      return result;
+      }
+    </script>
   
-  </script>
 </body>
 </html>
