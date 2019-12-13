@@ -42,25 +42,28 @@ if ( isset($_REQUEST['action']) && $_REQUEST['action']=="write" )  //
         //extract the contain block of that id
         //var_dump($matches);
         $matched_text =$matches[2];
+       // echo "\nMATCHED:\n".$matches[2];  
 
         //This will become the deplacement div code
         $replacement ="<div class='editable' id=\"".$id."\" {{contentedit}} >".trim($_REQUEST['content'])."</div>";
-        //echo  $replacement;  
+       // echo "REQUEST:\n".$_REQUEST['content'];  
+       // echo "REPLACEMENT:\n".$replacement;  
 
         //replace the block with the new content, just for the requested <div id=xx> ... </div>
         $new_html= preg_replace('#(<div[^>]*id=[\'|"]'.$id.'[\'|"][^>]*>)(.*)</div>#isU', $replacement , $page_html);
+       // echo "NEW:\n".$new_html;
 
         //write the update page (Entire Page back to disk)
         if (is_writable($html_filename))
         {
-        $bytes=file_put_contents($html_filename, $new_html);
-        echo "\n Successfully wrote $bytes bytes \n";
+        $bytes=file_put_contents($html_filename, $new_html);  //disabled because of bug with regex above
+        echo "\n Success wrote $bytes bytes \n";
         }
         else
         die("File cannot not be written to check permissions");
 
         //return status and exit here.
-        die("End of AJAX Function  write  Content");
+        die("\n Success  AJAX Function write Content");
     }
 
 
@@ -104,7 +107,7 @@ $page_html_placeholders = [
       $.ajax({
           type: 'post',
           url:  '$server_write_hmtl',
-          data: 'content=' +myTxt.trim()+"&id="+myid+"&action=write"
+          data: 'content=' +myTxt+"&id="+myid+"&action=write"
       });
   });
   </script>
