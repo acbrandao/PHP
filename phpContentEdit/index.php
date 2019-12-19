@@ -37,6 +37,9 @@ if ( isset($_REQUEST['action']) && $_REQUEST['action']=="write" )  //
 
         //Find the ID in the page that was just loaded 
         $matches = array();
+
+        //trying to use RegEx to match but need to use SimpleXML because of DOM and xml complexity
+        // search for 
         preg_match('#(<div[^>]*id=[\'|"]'.$id.'[\'|"][^>]*>)(.*)</div>#isU', $page_html, $matches);
        
         //extract the contain block of that id
