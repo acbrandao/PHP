@@ -7,21 +7,21 @@ echo "<h1> DOmDocument </h1>";
 $html="content.html";
 
 $doc = new DOMDocument();
-$doc->loadHTML($html);
+$doc->loadHTMLFile($html);
 
-// $elements = $doc->getElementsByTagName('h1');
-// $elements = $doc->getElementsByTagName('*');
+$xpath = new DOMXPath($doc);
 
-$elements = $doc->getElementsByTagName('h1');
-// https://www.php.net/manual/en/domdocument.loadhtmlfile.php
+$nodes =  $xpath->query("//*[@id='ce-01']");
 
-foreach ($elements as $element) {
-    echo "<br/>". $element->nodeName. ": ";
+foreach($nodes as $node) {
+  $newnode = $doc->createDocumentFragment();
+  $newnode->appendXML("<strong>NEw HTML CODED INSERTED </strong>");
+  $node->appendChild($newnode);
+}
 
-    $nodes = $element->childNodes;
-    foreach ($nodes as $node) {
-      echo $node->nodeValue. "\n";
-    }
-  }
+echo "<h3> Print out HTML (Escaped) </h3> <hr>";
+echo $doc->saveHTML();
 
 ?>
+
+

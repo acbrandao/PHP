@@ -1,46 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{title}}</title>
-    <link rel="icon" href="data:,">
-    <!-- include  necessary Bootstrap 4.0  and related libraries-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>{{title}}</title><link rel="icon" href="data:,"><!-- include  necessary Bootstrap 4.0  and related libraries--><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+  </script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js">
+  </script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script></head><body>
         <div class="jumbotron text-center">
                 <h1>Content Editable  Bootstrap Page</h1>
                 <p>Resize this responsive page to see the effect!</p>
-                <form action="{{server_page}}" name="form1" id="form1" method="POST">
-                <input type="hidden" name="pw" value="" id="pw">
-                <button  type="submit" class="btn btn-primary" onclick="return allowEdit()"> {{action}} </button>
-                <button type="button" class="btn btn-secondary" onClick='location.reload()'> reload</button>
+                <form action="index.php?action=edit" name="form1" id="form1" method="POST">
+                <input type="hidden" name="pw" value="" id="pw"><button type="submit" class="btn btn-primary" onclick="return allowEdit()"> {{action}} </button>
+                <button type="button" class="btn btn-secondary" onclick="location.reload()"> reload</button>
             </form>
             </div>
               <div class="container">
                 <div class="row">
                   <div class="col-sm-4">
                         <h2>Content Edit Para 1</h2>
-                        <div class="editable" id="ce-01" {{contentedit}}>
-                            <strong> Edit this content </strong>This is the first
-                            paragraphs content. This content is editable and 
+                        <div class="editable" id="ce-1">
+                            This is the first   paragraphs content. 
+                            This content is editable and 
                             can be changed and switched on blur action of this fiv.
                         </div>
                   </div>
                   <div class="col-sm-4">
                         <h2>Content Edit Para 2</h2>
-                <div class='editable' id="ce-02" {{contentedit}} >This is the <strong>second paragraphs</strong> content, it too
+                <div class="editable" id="ce-2">
+                  This is the <strong>second paragraphs</strong> content, it too
                             can be edited and changed using the content editable tag, changeseditable
-                            changes will be writtent to disk</div>
+                            changes will be writtent to disk
+                        </div>
                   </div>
                   <div class="col-sm-4">
                     <h2>Content Edit Para 3</h2>
-                    <div class='editable' id="ce-03" {{contentedit}} >this seemed to work pretty well.<div><br></div><div>All the new lines are converted into div tags</div><div><br></div><div>so you might see a bunch of div tags</div></div><div>All the new lines are converted into div tags</div><div><br></div><div>so you might see a bunch of div tags</div></div>
+                    wow this finally looks like its working
                 </div>
               </div>
     
@@ -54,7 +44,4 @@
       document.getElementById('pw').value=result;
       return result;
       }
-    </script>
-  
-</body>
-</html>
+    </script></div></body></html>
