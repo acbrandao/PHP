@@ -55,12 +55,14 @@
      </div>
 
       <button class="btn-primary" type="submit">Verify Captcha </button>
-      <p class="mt-5 mb-3 text-muted">&copy; abrandao.com 2022</p>
+      <button class="btn-primary" type="button" onClick="window.reload()">Reset Captcha</button>
+     
     </form>
   </div>
-</div>
 
-  
+  <p class="mt-5 mb-3 text-muted">&copy; abrandao.com 2022</p>
+</div>
+ 
 
 </body>
 </html>
