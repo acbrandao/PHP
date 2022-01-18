@@ -27,7 +27,7 @@ echo "<input type='hidden' name='captcha' value='$val'>";
 ?>
 ```
 
-### Importance of usign **salt** value
+### Importance of using **salt** value
 For increased security  add a salt value to the $computed number to prevent md5 brute-force
 ```php
 $salt_value=12345;

@@ -12,19 +12,11 @@
 <hr>
 <main class="form-signin" action="captcha_check.php" method="POST">
     <form>
-        <h1 class="h3 mb-3 fw-normal">>Math captcha Sample</h1>
+        <h1 class="h3 mb-3 fw-normal">Math captcha Sample</h1>
         <p>a simple logic captcha, such as a  math (arithmetic) captcha (Add, subtract , multiply??) is enough to defeat most bots, so below 
             is a simple code example of how a simple text based math captcha can solve the issue..</p>
 
-      <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Email address</label>
-      </div>
-      <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-        <label for="floatingPassword">Password</label>
-      </div>
-  
+            <h2> Solve the Captcha Below </h2>
       <div class="field">
         <label for="message">Captcha</label>
  
