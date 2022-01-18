@@ -20,10 +20,10 @@
         <div class="col-md-12">
           <h2>User submission</h2>    
           <p> Below are the results of the User entered hash </p>   
-            <li> The User Entered: <?php echo  ?>
-            <li> The User Hash was: <?php   ?>
-            <li> The Answer hash  : <?php    ?>
-            <!-- Math Captcha PHP code goes here   ?>
+            <li> The User Entered : <?php echo $_REQUEST["captchauser"] ?>
+            <li> The User Hash was:  <?php echo MD5($_REQUEST["captchauser"]) ?>
+            <li> The Answer hash  : <?php echo  MD5($_REQUEST["captcha"]) ?>
+            <!-- Math Captcha PHP code goes here   -->
                 <?php
                 try {
                 // Now lets compare the has value Is the captcha correct with the user entered phrase
