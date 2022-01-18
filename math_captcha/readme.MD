@@ -1,4 +1,4 @@
-## Match Captcah in PHP 
+## Match Captcha in PHP 
 
 PHP Math Captcha basics
 Let's begin with the basics we'll create a simple arithmetic math problem like 5+3 then ask the user to supply and answer, then we'll capture the user's input and compare the result with the correct solution on the form before we do anything with the input. Since most bots may not (some of the more sophisticated ones do recognition, but most do not), they'll just fail and NOT send you the form/ or capture the user input.
