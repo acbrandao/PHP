@@ -55,7 +55,7 @@
      </div>
 
       <button class="btn-primary" type="submit">Verify Captcha </button>
-      <button class="btn-primary" type="button" onClick="window.reload()">Reset Captcha</button>
+      <button class="btn-primary" type="button" onClick="location.reload()">Reset Captcha</button>
      
     </form>
   </div>
