@@ -10,13 +10,19 @@
 <body>
 
 <hr>
-<main class="form-signin" action="captcha_check.php" method="POST">
-    <form>
-        <h1 class="h3 mb-3 fw-normal">Math captcha Sample</h1>
-        <p>a simple logic captcha, such as a  math (arithmetic) captcha (Add, subtract , multiply??) is enough to defeat most bots, so below 
-            is a simple code example of how a simple text based math captcha can solve the issue..</p>
 
-            <h2> Solve the Captcha Below </h2>
+<div class="row">
+    <div class="col-md-12">
+    <h1 class="h3 mb-3 fw-normal">Math captcha Sample</h1>
+    <p>a simple logic captcha, such as a  math (arithmetic) captcha (Add, subtract , multiply??) is enough to defeat most bots, so below 
+            is a simple code example of how a simple text based math captcha can solve the issue..</p>
+    </div>
+  
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+    <form action="captcha_check.php" method="POST">
+           <h2> Solve the Captcha Below </h2>
       <div class="field">
         <label for="message">Captcha</label>
  
@@ -47,7 +53,9 @@
       <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
       <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
     </form>
-  </main>
+  </div>
+    
+
   
 
 </body>
