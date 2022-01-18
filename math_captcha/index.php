@@ -9,8 +9,12 @@
 </head>
 <body>
 
-<hr>
+<div class="jumbotron text-center">
+  <h1>PHP Math Captcha Example</h1>
+  <p>a simple logic captcha, such as a  math (arithmetic) captcha </p>
+</div>
 
+<div class="container">
 <div class="row">
     <div class="col-md-12">
     <h1 class="h3 mb-3 fw-normal">Math captcha Sample</h1>
@@ -54,7 +58,7 @@
       <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
     </form>
   </div>
-    
+</div>
 
   
 
