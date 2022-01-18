@@ -54,8 +54,8 @@
         <input type="text" name="captchauser" id="captchauser" required />
      </div>
 
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-      <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+      <button class="btn-primary" type="submit">Verify Captcha </button>
+      <p class="mt-5 mb-3 text-muted">&copy; abrandao.com 2022</p>
     </form>
   </div>
 </div>
