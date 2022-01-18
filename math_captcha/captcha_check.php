@@ -30,8 +30,8 @@
 
                 //Note: if using a salt_value (from ast page), you must add apply the salt value to this comparison
                 if ($_REQUEST["captcha"]!=MD5($_REQUEST["captchauser"]) )
-                throw new Exception("Captcha answer is not correct. No message sent. <a href='index.php#contact' >Re-try</a> ");
-                echo "<h1> Congrats! You passed the Captch </h1>";
+                throw new Exception("Captcha answer is NOT CORRECT. <a href='index.php#contact' >Re-try</a> ");
+                echo "<h1> Congrats! You passed the Captcha test, your one smart cookie or very smart robot :) </h1>";
                 } catch (Exception $e) {
                 echo "<h2>Sorry the Captcha was not passed </h2>. Error:".$e->getMessage() ;
                 }
