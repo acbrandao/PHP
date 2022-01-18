@@ -54,8 +54,9 @@
         <input type="text" name="captchauser" id="captchauser" required />
      </div>
 
-      <button class="btn-primary" type="submit">Verify Captcha </button>
-      <button class="btn-primary" type="button" onClick="location.reload()">Reset Captcha</button>
+      <button class="btn-primary" type="submit">Verify Captcha </button><br>
+
+      <button class="btn-secondary" type="button" onClick="location.reload()">Reset Captcha</button>
      
     </form>
   </div>
