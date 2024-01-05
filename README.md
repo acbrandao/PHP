@@ -20,5 +20,6 @@ Below is the general descriptions and projects in this GitHub direcotry.
 | simple_cahce    | PHP  of how to easily cache a dynamic page into static text page  |   PHP   |
 | phpContentEdit  | Uses HTML5 contentEditable with Ajax and PHP backend to update web pages | PHP |
 | mathCaptcha   |Simple PHP match cpatcha based input schecked| PHP |
+| endpoint.php    | Simple http daemon server for /endpoints| PHP |
 
 
